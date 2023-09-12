@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication</title>
+</head>
+<body>
+    <h1>Multiplication Calculator</h1>
+
+    <form id="multiplicationForm">
+        <label for="firstNumber">Enter the first number:</label>
+        <input type="number" id="firstNumber" required><br><br>
+
+        <label for="secondNumber">Enter the second number:</label>
+        <input type="number" id="secondNumber" required><br><br>
+
+        <input type="submit" value="Calculate">
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("multiplicationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get the values from the form
+            var firstNumber = parseFloat(document.getElementById("firstNumber").value);
+            var secondNumber = parseFloat(document.getElementById("secondNumber").value);
+
+            if (!isNaN(firstNumber) && !isNaN(secondNumber)) {
+                // Input values are valid numbers
+                function multiply(a, b) {
+                    return a * b;
+                }
+
+                var result = multiply(firstNumber, secondNumber);
+                console.log(result);
+
+                // Display the result on the web page
+                document.getElementById("result").innerHTML = "The result of multiplying " + firstNumber + " by " + secondNumber + " is: " + result;
+            } else {
+                // Input values are not valid numbers
+                document.getElementById("result").innerHTML = "Invalid input. Please enter valid numbers.";
+            }
+        });
+    </script>
+</body>
+</html>
