@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<employees>
+    <employee>
+        <name>John Doe</name>
+        <address>123 Main Street, City, Country</address>
+        <gender>Male</gender>
+        <company>ABC Inc.</company>
+    </employee>
+    <employee>
+        <name>Jane Smith</name>
+        <address>456 Elm Avenue, Town, Country</address>
+        <gender>Female</gender>
+        <company>XYZ Corporation</company>
+    </employee>
+    <!-- Add more employee entries as needed -->
+</employees>

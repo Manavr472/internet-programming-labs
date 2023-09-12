@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Hover Effect</title>
+</head>
+<body>
+    <h1>Image Hover Effect</h1>
+
+    <!-- Original image -->
+    <img id="image" src="original-image.jpg" alt="Original Image" onmouseover="changeImage()" onmouseout="restoreImage()">
+    
+    <script>
+        var originalImageSrc = "original-image.jpg"; // Replace with your original image source
+        var hoverImageSrc = "hover-image.jpg"; // Replace with your hover image source
+        var imageElement = document.getElementById("image");
+
+        function changeImage() {
+            imageElement.src = hoverImageSrc;
+        }
+
+        function restoreImage() {
+            imageElement.src = originalImageSrc;
+        }
+    </script>
+</body>
+</html>

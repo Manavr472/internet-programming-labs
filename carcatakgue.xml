@@ -1,0 +1,36 @@
+<!DOCTYPE catalog [
+    <!ELEMENT catalog (car+)>
+    <!ELEMENT car (make, model, year, color, engine, doors)>
+    <!ELEMENT make (#PCDATA)>
+    <!ELEMENT model (#PCDATA)>
+    <!ELEMENT year (#PCDATA)>
+    <!ELEMENT color (#PCDATA)>
+    <!ELEMENT engine (no_of_cylinders, fuel_type)>
+    <!ELEMENT no_of_cylinders (#PCDATA)>
+    <!ELEMENT fuel_type (#PCDATA)>
+    <!ELEMENT doors (#PCDATA)>
+]>
+<catalog>
+    <car>
+        <make>Toyota</make>
+        <model>Camry</model>
+        <year>2023</year>
+        <color>Silver</color>
+        <engine>
+            <no_of_cylinders>4</no_of_cylinders>
+            <fuel_type>Petrol</fuel_type>
+        </engine>
+        <doors>4</doors>
+    </car>
+    <car>
+        <make>Honda</make>
+        <model>Accord</model>
+        <year>2022</year>
+        <color>Blue</color>
+        <engine>
+            <no_of_cylinders>6</no_of_cylinders>
+            <fuel_type>Hybrid</fuel_type>
+        </engine>
+        <doors>4</doors>
+    </car>
+</catalog>

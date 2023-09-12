@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advertisement Change</title>
+</head>
+<body>
+    <h1>Advertisement</h1>
+    <img id="advertisement" src="ad1.jpg" alt="Advertisement Image">
+
+    <script>
+        // An array of advertisement image sources
+        const advertisementImages = ["ad1.jpg", "ad2.jpg", "ad3.jpg"]; // Add your image sources
+
+        // Function to change the advertisement image
+        function changeAdvertisement() {
+            const advertisement = document.getElementById("advertisement");
+            const currentImageSrc = advertisement.src;
+            
+            // Find the index of the current image in the array
+            const currentIndex = advertisementImages.indexOf(currentImageSrc);
+
+            // Calculate the index of the next image
+            const nextIndex = (currentIndex + 1) % advertisementImages.length;
+
+            // Set the src attribute of the image to the next advertisement image
+            advertisement.src = advertisementImages[nextIndex];
+        }
+
+        // Change the advertisement every 5 minutes (300,000 milliseconds)
+        setInterval(changeAdvertisement, 300000); // Adjust the interval as needed
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change HTML Attribute Value</title>
+</head>
+<body>
+    <h1>Change HTML Attribute Value</h1>
+
+    <img id="myImage" src="original-image.jpg" alt="Original Image">
+    <button onclick="changeImageSrc()">Change Image Source</button>
+
+    <script>
+        function changeImageSrc() {
+            // Get a reference to the image element by its ID
+            var imageElement = document.getElementById("myImage");
+
+            // Change the 'src' attribute value to a new image source
+            imageElement.setAttribute("src", "new-image.jpg");
+
+            // Optional: Change the 'alt' attribute value
+            imageElement.setAttribute("alt", "New Image Alt Text");
+        }
+    </script>
+</body>
+</html>

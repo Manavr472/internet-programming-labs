@@ -1,0 +1,47 @@
+<?php
+// Function to check if a string is a palindrome
+function isPalindrome($str) {
+    // Remove spaces and convert to lowercase for case-insensitive comparison
+    $str = strtolower(str_replace(' ', '', $str));
+
+    // Reverse the string
+    $reversedStr = strrev($str);
+
+    // Check if the original and reversed strings are the same
+    return $str === $reversedStr;
+}
+
+// Get the user input
+if (isset($_POST['inputString'])) {
+    $inputString = $_POST['inputString'];
+
+    if (isPalindrome($inputString)) {
+        $result = "The entered string is a palindrome.";
+    } else {
+        $result = "The entered string is not a palindrome.";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+</head>
+<body>
+    <h1>Palindrome Checker</h1>
+    <form method="post">
+        <label for="inputString">Enter a string:</label>
+        <input type="text" id="inputString" name="inputString" required>
+        <input type="submit" value="Check">
+    </form>
+    
+    <?php
+    if (isset($result)) {
+        echo "<p>$result</p>";
+    }
+    ?>
+</body>
+</html>

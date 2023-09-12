@@ -1,0 +1,68 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    border: 2px solid #000;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    animation: moveDown 2s linear forwards, changeColor 2s linear 2s forwards, moveDiagonal 2s linear 4s forwards, changeColorBack 2s linear 6s forwards;
+  }
+  
+  @keyframes moveDown {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(100px);
+    }
+    50% {
+      transform: translateY(200px);
+    }
+    75% {
+      transform: translateY(300px);
+    }
+    100% {
+      transform: translateY(400px);
+    }
+  }
+  
+  @keyframes changeColor {
+    0% {
+      background-color: lightblue;
+    }
+    100% {
+      background-color: darkblue;
+    }
+  }
+  
+  @keyframes moveDiagonal {
+    0% {
+      top: 10px;
+      left: 10px;
+    }
+    100% {
+      top: 300px;
+      left: 300px;
+    }
+  }
+  
+  @keyframes changeColorBack {
+    0% {
+      background-color: darkblue;
+    }
+    100% {
+      background-color: green;
+    }
+  }
+  

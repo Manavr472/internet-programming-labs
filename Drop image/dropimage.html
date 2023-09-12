@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Image</title>
+    <style>
+        /* Add some basic styles for the drop area */
+        #dropArea {
+            width: 300px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            text-align: center;
+            padding: 20px;
+            margin: 20px auto;
+        }
+
+        /* Style the image when it's being dragged */
+        #dragImage {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Drag and Drop Image</h1>
+
+    <!-- The drop area where you can drag and drop the image -->
+    <div id="dropArea" ondrop="drop(event)" ondragover="allowDrop(event)">
+        Drop the image here
+    </div>
+
+    <!-- The image you can drag and drop -->
+    <img id="dragImage" src="your-image.jpg" draggable="true" ondragstart="drag(event)" alt="Draggable Image">
+    
+    <script>
+        // Function to handle the drag event
+        function drag(event) {
+            event.dataTransfer.setData("text", event.target.id);
+        }
+
+        // Function to allow the drop event
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+
+        // Function to handle the drop event
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("text");
+            var target = event.target;
+
+            // Check if the drop target is the drop area
+            if (target.id === "dropArea") {
+                // Append the dragged image to the drop area
+                target.appendChild(document.getElementById(data));
+            }
+        }
+    </script>
+</body>
+</html>

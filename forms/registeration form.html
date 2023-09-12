@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <h1>Registration Form</h1>
+    
+    <form action="process_registration.php" method="post" enctype="multipart/form-data" id="registrationForm">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" required><br><br>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="gender">Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label>
+        <input type="radio" id="other" name="gender" value="other" required>
+        <label for="other">Other</label><br><br>
+
+        <label for="profilepic">Profile Picture:</label>
+        <input type="file" id="profilepic" name="profilepic" accept="image/*" required><br><br>
+
+        <label for="language">Preferred Language:</label>
+        <select id="language" name="language" required onchange="changeLanguage()">
+            <option value="english">English</option>
+            <option value="spanish">Spanish</option>
+            <option value="french">French</option>
+            <option value="german">German</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="course">Course:</label>
+        <select id="course" name="course" required>
+            <option value="math">Mathematics</option>
+            <option value="history">History</option>
+            <option value="science">Science</option>
+            <option value="english">English</option>
+            <option value="other">Other</option>
+        </select><br><br>
+
+        <label for="comments">Comments:</label><br>
+        <textarea id="comments" name="comments" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Register">
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>

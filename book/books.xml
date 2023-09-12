@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book>
+        <bookID>1</bookID>
+        <bookNumber>ISBN-123456</bookNumber>
+        <authorName>John Doe</authorName>
+        <publisher>ABC Publications</publisher>
+        <price>25.99</price>
+        <edition>1st Edition</edition>
+    </book>
+    <book>
+        <bookID>2</bookID>
+        <bookNumber>ISBN-789012</bookNumber>
+        <authorName>Jane Smith</authorName>
+        <publisher>XYZ Books</publisher>
+        <price>19.95</price>
+        <edition>2nd Edition</edition>
+    </book>
+</library>

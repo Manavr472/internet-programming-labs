@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Registration Form</title>
+</head>
+<body>
+    <h1>Placement Registration Form</h1>
+
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="contact">Contact No:</label>
+        <input type="tel" id="contact" name="contact" required><br><br>
+
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <label for="percentage">Percentage:</label>
+        <input type="number" id="percentage" name="percentage" required><br><br>
+
+        <label>Branch:</label>
+        <input type="radio" id="cse" name="branch" value="CSE" required>
+        <label for="cse">CSE</label>
+        <input type="radio" id="ece" name="branch" value="ECE" required>
+        <label for="ece">ECE</label><br><br>
+
+        <label>Technology Preferred:</label>
+        <input type="checkbox" id="java" name="technology" value="Java">
+        <label for="java">Java</label>
+        <input type="checkbox" id="python" name="technology" value="Python">
+        <label for="python">Python</label><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var percentage = parseFloat(document.getElementById("percentage").value);
+
+            // Email validation
+            if (!isValidEmail(email)) {
+                alert("Invalid email format.");
+                return false;
+            }
+
+            // Percentage validation
+            if (percentage < 60) {
+                alert("Percentage must be at least 60%.");
+                return false;
+            }
+
+            // All fields must be filled
+            var form = document.getElementById("registrationForm");
+            for (var i = 0; i < form.elements.length; i++) {
+                if (form.elements[i].type === "text" || form.elements[i].type === "textarea" || form.elements[i].type === "tel" || form.elements[i].type === "email" || form.elements[i].type === "date") {
+                    if (form.elements[i].value.trim() === "") {
+                        alert("Please fill in all fields.");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+        function isValidEmail(email) {
+            var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
