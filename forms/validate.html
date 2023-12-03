@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+
+    #submitBtn {
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Form Validation</h2>
+
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" required>
+
+    <label for="email">Email ID:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="button" id="submitBtn" onclick="validateForm()">Submit</button>
+
+    <p id="error-message"></p>
+  </form>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var age = document.getElementById('age').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      var errorMessage = "";
+
+      // Name should be between A-Z
+      var nameRegex = /^[A-Za-z]+$/;
+      if (!nameRegex.test(name)) {
+        errorMessage += "Name should contain only letters A-Z.\n";
+      }
+
+      // Age should be between 0-100
+      if (age < 0 || age > 100 || isNaN(age)) {
+        errorMessage += "Age should be between 0-100.\n";
+      }
+
+      // Email ID should contain '@'
+      if (email.indexOf('@') === -1) {
+        errorMessage += "Email ID should contain '@'.\n";
+      }
+
+      // Password criteria
+      var passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+      if (!passwordRegex.test(password)) {
+        errorMessage += "Password should contain at least 1 uppercase letter, 1 digit, 1 special character, and have a minimum length of 8 characters.\n";
+      }
+
+      // Display error message or submit form
+      var errorMessageElement = document.getElementById('error-message');
+      if (errorMessage !== "") {
+        errorMessageElement.textContent = errorMessage;
+      } else {
+        errorMessageElement.textContent = "";
+        // Uncomment the line below to submit the form
+        document.getElementById('myForm').submit();
+      }
+    }
+  </script>
+
+</body>
+</html>
